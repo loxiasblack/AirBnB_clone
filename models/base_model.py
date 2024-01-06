@@ -10,18 +10,22 @@ class BaseModel:
     def __init__(self):
         """instantiation"""
         self.id = str(uuid4())
-        self.created_at = datetime.now()
-        self.update_at = datetime.now()
+        self.created_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f")
+        self.update_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f")
 
     def __str__(self):
         return "[BaseModel] ({}) {}".format(self.id, self.__dict__)
 
     def save(self):
         """update my pulique attribute updated_at with current time updated"""
-        self.update_at = datetime.now()
+        self.update_at = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f")
 
     def to_dict(self):
-        self.created_at = self.created_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
-        self.update_at = self.update_at.strftime("%Y-%m-%dT%H:%M:%S.%f")
+        "Method that return a dictionary of my instances"
 
-        return self.__dict__
+        return {
+                "id": self.id,
+                "__class__": self.__class__.__name__,
+                "created_at": self.created_at,
+                "updated_at": self.update_at
+                }
