@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 from uuid import uuid4
 from datetime import datetime
+from models.engine.file_storage import save
 
 
 class BaseModel:
@@ -18,6 +19,7 @@ class BaseModel:
     def save(self):
         """update my pulique attribute updated_at with current time updated"""
         self.updated_at = datetime.now()
+        save()
 
     def to_dict(self):
         "Method that return a dictionary of my instances"
