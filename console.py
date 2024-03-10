@@ -19,7 +19,7 @@ class HBNBCommand(cmd.Cmd):
         return True
     
     def emptyline(self):
-        return super().emptyline()
+        pass
 
 
 if __name__ == "__main__":
