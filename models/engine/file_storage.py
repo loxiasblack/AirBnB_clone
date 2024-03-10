@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 import json
 
-
 class FileStorage:
     """a class that allow to serialize and
         desirilize object and save"""
