@@ -17,6 +17,9 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, line):
         "quit the console"
         return True
+    
+    def emptyline(self):
+        return super().emptyline()
 
 
 if __name__ == "__main__":
